@@ -55,6 +55,16 @@ boost::system::error_code TCPWrapper::connect(boost::asio::ip::tcp::socket& sock
     return ec;
 }
 
+void TCPWrapper::setKeepAliveOption(boost::asio::ip::tcp::socket& socket, bool keepAlive)
+{
+    socket.set_option(boost::asio::ip::tcp::socket::keep_alive(keepAlive));
+}
+
+void TCPWrapper::setNoDelayOption(boost::asio::ip::tcp::socket& socket, bool noDelay)
+{
+    socket.set_option(boost::asio::ip::tcp::no_delay(noDelay));
+}
+
 }
 }
 }

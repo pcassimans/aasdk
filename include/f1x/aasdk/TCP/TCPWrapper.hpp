@@ -35,6 +35,8 @@ public:
     void close(boost::asio::ip::tcp::socket& socket) override;
     void asyncConnect(boost::asio::ip::tcp::socket& socket, const std::string& hostname, uint16_t port, ConnectHandler handler) override;
     boost::system::error_code connect(boost::asio::ip::tcp::socket& socket, const std::string& hostname, uint16_t port) override;
+    void setKeepAliveOption(boost::asio::ip::tcp::socket& socket, bool keepAlive) override;
+    void setNoDelayOption(boost::asio::ip::tcp::socket& socket, bool noDelay) override;
 };
 
 }
